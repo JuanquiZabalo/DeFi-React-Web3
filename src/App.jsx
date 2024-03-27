@@ -1,16 +1,24 @@
-import { useState } from 'react'
-import { AppLayout } from './components/ui/layouts'
+import { WagmiConfig } from "wagmi";
+import { ConnectKitProvider } from "connectkit";
+import { useState } from "react";
+import { AppLayout } from "./components/ui/layouts";
+import configWagmi from "./config/wagmi";
+import { Home } from "./pages";
 
+console.log('Alchemy ID:', import.meta.env.VITE_ALCHEMY_ID)
+console.log('Project ID:', import.meta.env.VITE_WALLETCONNECT_PROJECT_ID)
 function App() {
   return (
     <>
-    <AppLayout>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-    </AppLayout>
+      <WagmiConfig config={configWagmi}>
+        <ConnectKitProvider theme="default" mode="ligth">
+          <AppLayout>
+            <Home/>
+          </AppLayout>
+        </ConnectKitProvider>
+      </WagmiConfig>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
