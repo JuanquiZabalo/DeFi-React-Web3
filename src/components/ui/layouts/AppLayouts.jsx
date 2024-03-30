@@ -12,7 +12,7 @@ export default function AppLayout({children}){
     )
 }
 
-AppLayout.prototype = {
+AppLayout.propTypes = {
     children: PropTypes.node.isRequired
 }
 
