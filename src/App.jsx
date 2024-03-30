@@ -1,19 +1,24 @@
 import { WagmiConfig } from "wagmi";
 import { ConnectKitProvider } from "connectkit";
-import { useState } from "react";
 import { AppLayout } from "./components/ui/layouts";
 import configWagmi from "./config/wagmi";
-import { Home } from "./pages";
+import { Home, GestionUsuarios, OperacionPrestamos, NotFound } from "./pages";
+import { Route, Routes } from "react-router-dom";
 
-console.log('Alchemy ID:', import.meta.env.VITE_ALCHEMY_ID)
-console.log('Project ID:', import.meta.env.VITE_WALLETCONNECT_PROJECT_ID)
+console.log("Alchemy ID:", import.meta.env.VITE_ALCHEMY_ID);
+console.log("Project ID:", import.meta.env.VITE_WALLETCONNECT_PROJECT_ID);
 function App() {
   return (
     <>
       <WagmiConfig config={configWagmi}>
         <ConnectKitProvider theme="default" mode="ligth">
           <AppLayout>
-            <Home/>
+            <Routes>
+              <Route index element={<Home />} />
+              <Route path="usuarios" element={<GestionUsuarios />} />
+              <Route path="prestamos" element={<OperacionPrestamos />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
           </AppLayout>
         </ConnectKitProvider>
       </WagmiConfig>
