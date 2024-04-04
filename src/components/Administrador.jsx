@@ -14,9 +14,9 @@ export default function Administrador(){
     console.log(data)
     const resultado = isLoading ? <LoadingSpinner classname={'h-3 w-3'}/> : <p className='sm:text-xs bg-gray-100 border rounded p-2'>{data}</p>
     return(
-        <div className='sm:flex sm:w-[455px] gap-4 items-center border shadow p-3 rounded-lg w-[400px]'>
-            <Title>Administrador: </Title>
+        <section className='sm:flex sm:w-[455px] gap-4 items-center border shadow p-3 rounded-lg w-[400px] bg-gray-400'>
+            <Title classname={'text-white'}>Administrador: </Title>
             {resultado}
-        </div>
+        </section>
     )
 }
