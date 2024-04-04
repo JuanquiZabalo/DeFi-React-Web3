@@ -8,7 +8,10 @@ export default function Nav() {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/usuarios">Usuarios</Link>
+          <Link to="/usuariosPrestamistas">Prestamistas</Link>
+        </li>
+        <li>
+          <Link to="/usuariosClientes">Clientes</Link>
         </li>
         <li>
           <Link to="/prestamos">Prestamos</Link>
